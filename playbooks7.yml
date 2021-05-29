@@ -1,0 +1,15 @@
+---
+- name: installing software packages
+  hosts: all
+  tasks:
+   - name: install software packages
+     apt:
+      name: "{{item}}"
+      state: present
+      update_cache: no
+     with_items:
+      - git
+      - tomact8
+      - apache2
+      - tree
+...

@@ -1,0 +1,15 @@
+---
+- name: createa user and displayed detailed o/p
+  hosts: all
+  tasks:
+   - name: create user
+     user:
+      name: raghu1
+      password: lol
+      home: /home/raghu1
+      uid: 7654
+     register: a
+   - name: display the o/p
+     debug:
+      var: a
+... 

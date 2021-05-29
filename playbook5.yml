@@ -1,0 +1,5 @@
+---
+- name: installing different software packages
+  hosts: all
+  tasks:
+   - name: 

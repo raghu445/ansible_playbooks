@@ -1,0 +1,13 @@
+---
+- name: creating users and file/dir in usrs home directory
+  hosts: all
+  tasks:
+   - name: create multiple users
+     user:
+      name: "{{item.a}}"
+      password: "{{item.b}}"
+      home: "{{item.c}}"
+     with_items: 
+      - {a: Anu,b: lol,c: /home/Anu}
+      - {a: Uday,b: pop,c: /home/Uday}
+...

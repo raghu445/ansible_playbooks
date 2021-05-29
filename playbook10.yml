@@ -1,0 +1,14 @@
+---
+- name: creating files and directory in users home dir
+  hosts: all
+  tasks:
+   - name: creating files and dir
+     file:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+      owner: "{item.c}}"
+      group: "{{item.d}}"
+     with_items:
+      - {a: /home/Anu/got1,b: touch,c: Anu,d: Uday}
+      - {a: /home/Uday/got2,b: directory,c: Uday,d: Anu}
+... 

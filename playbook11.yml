@@ -1,0 +1,28 @@
+---
+- name: configuing apache2
+  hosts: all
+  tasks: 
+   - name: installing apache2
+     apt:
+      name: apache2
+      state: present
+      notify: check url response
+   - name: edit the index.html file
+     copy:
+      content: "welcome to my technology\n"      
+      dest: /var/www/html/index.html
+      notify: Restart apache2
+  handlers:
+   - name: restart apache2
+     service: 
+      name: apache2
+      state: restarted
+   - name: check url response
+     uri:
+      url: "{item}}"
+      status_code: 200
+     with_items:
+      - http://172.31.2.252
+      - http://172.31.3.58
+...
+      

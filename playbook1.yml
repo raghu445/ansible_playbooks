@@ -1,0 +1,13 @@
+---
+- name: cretaing dir and copying files
+  hosts: all
+  tasks:
+   - name: creating dir
+     file:
+      name: /home/ubuntu/ee
+      state: directory
+   - name: copying /etc/passwd file
+     copy:
+      src: /etc/passwd
+      dest: /home/ubuntu/ee
+...

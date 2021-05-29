@@ -1,0 +1,13 @@
+---
+- name: creating the users on manges nodes
+  hosts: all
+  tasks:
+   - name: user creation
+     user:
+      name: Ramesh
+      password: intelliq
+      home: /home/ubuntu
+      uid: 3344
+      shell: /bin/bash
+      comment: "a normal user"
+...

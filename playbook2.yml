@@ -1,0 +1,14 @@
+---
+- name: downloading git  on all manged nodes
+  hosts: all
+  tasks:
+   - name: downloading git
+     apt:
+      name: git
+      state: present
+      update_cache: yes
+   - name: clone a git repo
+     git:
+      repo: https://github.com/selenium-saikrishna/maven.git
+      dest: /tmp/mycode
+...
